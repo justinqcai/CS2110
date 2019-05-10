@@ -1,0 +1,128 @@
+/**
+ * Justin Cai, jc5pz
+ */
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+
+import org.junit.Test;
+
+public class HW7Tests {
+	BinarySearchTree<Integer> bst;
+	
+    public void setup() {
+        bst = new BinarySearchTree<Integer>();
+        bst.insert(3);
+        bst.insert(9);
+        bst.insert(8);
+        bst.insert(10);
+        bst.insert(2);
+        bst.insert(5);
+        bst.insert(4);
+        bst.insert(6);
+        System.out.println(bst.toString());
+    }
+
+    @Test
+    public void insertTest() {
+        String inOrder = "(2)(3)(4)(5)(6)(7)(8)(9)(10)";
+        bst.insert(7);
+        assertTrue(bst.inOrder().equals(inOrder));
+    }
+
+    @Test
+    public void insertLeafTest() {
+        String inOrder = "(1)(2)(3)(4)(5)(6)(8)(9)(10)";
+        bst.insert(1);
+        assertTrue(bst.inOrder().equals(inOrder));
+    }
+
+    @Test
+    public void findTest() {
+        assertTrue(bst.find(10));
+    }
+
+    @Test
+    public void findNotFoundTest() {
+        assertFalse(bst.find(11));
+    }
+
+    @Test
+    public void buildFromListTest() {
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        for (int i = 1; i <= 5; i++)
+            list.add(i);
+        BinarySearchTree<Integer> fromList = new BinarySearchTree<>();
+        fromList.buildFromList(list);
+        String listString = "";
+        for (Integer i : list)
+            listString += "(" + i + ")";
+        assertTrue(listString.equals(fromList.inOrder()));
+    }
+
+    @Test
+    public void buildFromOneSizeListTest() {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(0);
+        BinarySearchTree<Integer> fromList = new BinarySearchTree<>();
+        fromList.buildFromList(list);
+        String listString = "(0)";
+        assertTrue(listString.equals(fromList.inOrder()));
+    }
+
+    @Test
+    public void inOrderTest() {
+        String inOrder = "(2)(3)(4)(5)(6)(8)(9)(10)";
+        assertTrue(bst.inOrder().equals(inOrder));
+    }
+
+    @Test
+    public void inOrderSizeOneTest() {
+        String inOrder = "(2)";
+        assertTrue((new BinarySearchTree<Integer>(new TreeNode<Integer>(2))).inOrder().equals(inOrder));
+    }
+
+    @Test
+    public void postOrderTest() {
+        String postOrder = "(2)(4)(6)(5)(8)(10)(9)(3)";
+        assertTrue(bst.postOrder().equals(postOrder));
+    }
+
+    @Test
+    public void postOrderSizeOneTest() {
+        String postOrder = "(2)";
+        assertTrue((new BinarySearchTree<Integer>(new TreeNode<Integer>(2))).inOrder().equals(postOrder));
+    }
+
+    @Test
+    public void sizeTest() {
+        assertEquals(bst.size(), 8);
+    }
+
+    @Test
+    public void sizeOneTest() {
+        assertEquals((new BinarySearchTree<Integer>(new TreeNode<Integer>(2))).size(), 1);
+    }
+
+    @Test
+    public void heightTest() {
+        assertEquals(bst.height(), 5);
+    }
+
+    @Test
+    public void heightOneTest() {
+        assertEquals((new BinarySearchTree<Integer>(new TreeNode<Integer>(2))).height(), 1);
+    }
+
+    @Test
+    public void deleteTest() {
+        String inOrder = "(2)(3)(5)(6)(8)(9)(10)";
+        assertTrue(bst.delete(4) && bst.inOrder().equals(inOrder));
+    }
+
+    @Test
+    public void deleteNotFoundTest() {
+        assertFalse(bst.delete(7));
+    }
+
+}

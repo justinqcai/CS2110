@@ -1,0 +1,228 @@
+
+/**
+ * Binary Tree Node
+ * 
+ * Tree node that has two children: left and right
+ * 
+ * @author jc5pz
+ * @param <Comparable> The type of data this tree node stores
+ */
+public class TreeNode<T extends Comparable<T>> {
+	
+	/**
+	 * Reference pointer to the left subtree
+	 */
+	private TreeNode<T> left;
+	
+	/**
+	 * Reference pointer to the right subtree
+	 */
+	private TreeNode<T> right;
+	
+	/**
+	 * Data stored at this node
+	 */
+	private T data;
+	
+	/**
+	 * Default Constructor
+	 * 
+	 * Creates a binary tree node with null data and null children
+	 */
+	public TreeNode(){
+		this(null,null,null);
+	}
+	
+	/**
+	 * Data-only Constructor
+	 * 
+	 * Creates a binary tree node with the given data and null children
+	 * 
+	 * @param theData The data to store at this node
+	 */
+	public TreeNode(T theData){
+		this(theData,null,null);
+	}
+	
+	
+	/**
+	 * Full Constructor
+	 * 
+	 * Creates a binary tree node with the given data and child reference pointers
+	 * 
+	 * @param theData The data to store at this node
+	 * @param leftChild A reference pointer to the left subtree
+	 * @param rightChild A reference pointer to the right subtree
+	 */
+	public TreeNode(T theData, TreeNode<T> leftChild, TreeNode<T> rightChild){
+		data = theData;
+		left = leftChild;
+		right = rightChild;
+	}
+
+
+	/**
+	 * Left Child/Subtree getter
+	 * 
+	 * @return A reference pointer to the root of the left subtree
+	 */
+	public TreeNode<T> getLeft() {
+		return left;
+	}
+
+	/**
+	 * Left Child/Subtree Setter
+	 * 
+	 * @param left A reference pointer to the new left subtree's root node
+	 */
+	public void setLeft(TreeNode<T> left) {
+		this.left = left;
+	}
+
+    /**
+     * Right Child/Subtree getter
+     * 
+     * @return A reference pointer to the root of the right subtree
+     */
+	public TreeNode<T> getRight() {
+		return right;
+	}
+
+    /**
+     * Right Child/Subtree Setter
+     * 
+     * @param left A reference pointer to the new right subtree's root node
+     */
+	public void setRight(TreeNode<T> right) {
+		this.right = right;
+	}
+
+	/**
+	 * Get the data at this node
+	 * 
+	 * @return The data stored at this node
+	 */
+	public T getData() {
+		return data;
+	}
+
+	/**
+	 * Set the data at this node
+	 * 
+	 * @param data The data to be stored at this node
+	 */
+	public void setData(T data) {
+		this.data = data;
+	}
+	
+	/**
+	 * toString method
+	 */
+	@Override
+	public String toString() {
+	    return null;
+	}
+	/**
+	 * 
+	 * @return an int containing the number of total nodes in the TreeNode structure
+	 */
+	public int size() {
+		if(this.getLeft() == null && this.getRight() == null) {
+			return 1;
+		}
+		if(this.getLeft() != null && this.getRight() != null) {
+			return 1 + this.getLeft().size() + this.getRight().size();
+		}
+		else if(this.getLeft() != null) {
+			return 1 + this.getLeft().size();
+		}
+		else if(this.getRight() != null) {
+			return 1 + this.getRight().size();
+		}
+		return 1;
+		
+	}
+	/**
+	 * 
+	 * @return an integer containing the height of the TreeNode structure
+	 */
+	public int height() {
+		if(this.getLeft() == null && this.getRight() == null) {
+			return 1;
+		}
+		if(this.getLeft() != null && this.getRight() != null) {
+			return 1 + Math.max(this.getLeft().height(), this.getRight().height());
+		}
+		else if(this.getLeft() != null) {
+			return 1 + this.getLeft().height();
+		}
+		else if(this.getRight() != null) {
+			return 1 + this.getRight().height();
+		}
+		return 1;
+	}
+	/**
+	 * Find if an element exists
+	 * 
+	 * Checks to see if the value val appears in the
+	 * tree (recursively).  Returns true if it appears
+	 * and false otherwise.
+	 * 
+	 * @param val The value to find
+	 * @return True if the tree contains the value, false otherwise
+	 */
+	public boolean find(T val) {
+		if(getData().compareTo(val) == 0) {
+			return true;
+		}
+		else if(getData().compareTo(val) < 0) {
+			if(getRight() != null) {
+				return getRight().find(val);
+			}
+			else return false;
+		}
+		else {
+			if(getLeft() != null) {
+				return getLeft().find(val);
+			}
+			else return false;
+		}
+	}
+	/**
+	 * Insert an element
+	 * 
+	 * Inserts val into the tree where it should appear, returning
+	 * true on success and false otherwise
+	 * 
+	 * @param val The value to insert
+	 * @return True on success, false otherwise
+	 */
+	public boolean insert(T val) {
+		if(getData().compareTo(val) == 0) {
+			return false;
+		}
+		else if(getData().compareTo(val) < 0) {
+			if(getRight() != null) {
+				return getRight().insert(val);
+			}
+			else setRight(new TreeNode<T>(val)); return true;
+		}
+		else {
+			if(getLeft() != null) {
+				return getLeft().insert(val);
+			}
+			else setLeft(new TreeNode<T>(val)); return true;
+		}
+	}
+	/**
+	 * Main method
+	 * 
+	 * For main method testing, etc
+	 * 
+	 * @param args Command-line arguments
+	 */
+	public static void main(String[] args) {
+	    
+	}
+
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="bst" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="true" key="wholeword"/>
+		<list key="findhistory">
+			<item value="boi"/>
+			<item value="delete"/>
+			<item value="find"/>
+			<item value="delet"/>
+			<item value="pattern"/>
+			<item value="patern"/>
+			<item value="draw"/>
+			<item value="void draw"/>
+			<item value="public void draw"/>
+			<item value="public static void draw"/>
+			<item value="imageLibrary"/>
+			<item value="radioDraw"/>
+			<item value="ratingBar"/>
+			<item value="buttonBar"/>
+			<item value="buttonPanel"/>
+		</list>
+		<list key="replacehistory">
+			<item value="bst"/>
+			<item value="imageAlbum"/>
+			<item value="drawRatings"/>
+			<item value="ratings"/>
+			<item value="top"/>
+			<item value="buttonBar"/>
+			<item value="draw()"/>
+			<item value="caption"/>
+			<item value="rating"/>
+			<item value="date"/>
+			<item value="exit"/>
+			<item value="ratingBar"/>
+			<item value="bar"/>
+			<item value="mainImg"/>
+			<item value="button5"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="294" key="DIALOG_WIDTH"/>
+		<item value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont" key="DIALOG_FONT_NAME"/>
+		<item value="408" key="DIALOG_HEIGHT"/>
+		<item value="1053" key="DIALOG_X_ORIGIN"/>
+		<item value="81" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;Concurrency.java&apos; to &apos;WordCountRunnable.java&apos;&#x0A;- Original project: &apos;Concurrency&apos;&#x0A;- Original element: &apos;Concurrency.java&apos;&#x0A;- Renamed element: &apos;WordCountRunnable.java&apos;" description="Rename compilation unit &apos;Concurrency.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;{Concurrency.java" name="WordCountRunnable.java" references="false" stamp="1554346810793" version="1.0"/>
+</session>
